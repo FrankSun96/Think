@@ -47,12 +47,14 @@ class ImagesList(Resource):
 
 		output = []
 		for image in images:
+			image_url = image.get()['image_url']
+			image_genre = image.get()['image_genre']
+			username = current_user.username
+			image_url = '/static/assets/users/%s/%s/%s.jpg'%(username, image_genre, image_url)
+			image.image_url = image_url
 			output.append(image.get())
 
-		return {
-					'message': 'success',
-					'images': output
-				}, 200
+		return {"code": "0","message": "success", "images": output}, 200
 
 class ImagesDelete(Resource):
 	decorators = [token_required]
@@ -60,6 +62,12 @@ class ImagesDelete(Resource):
 	def delete(self, current_user, image_id):
 		image = ImageModel.find_by_image_id(image_id)
 		if image:
+			image_url = image.get()['image_url']
+			image_genre = image.get()['image_genre']
+			username = current_user.username
+			root_folder = os.getcwd()
+			user_folder = os.path.join(root_folder,'static/assets/users/' + username + '/' + image_genre + '/' + image_url + '.jpg')
+			os.remove(user_folder)
 			image.delete_from_db()
 
 		return {"code": "0","message": "Delete image successfully"}, 200
