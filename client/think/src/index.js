@@ -23,8 +23,8 @@ import rootReducer from './reducers';
 
 import { Provider } from 'react-redux';
 
-import setAuthorizationToken from './utils/setAuthorizationTokens';
-import { setCurrentUser } from './actions/loginActions';
+import { setAuthorizationToken } from './utils/authorization';
+import { setCurrentUser, checkOnlineRequest } from './actions/loginActions';
 import jwtDecode from 'jwt-decode';
 
 const store = createStore(
@@ -36,13 +36,24 @@ const store = createStore(
 
 if (localStorage.token) {
 	setAuthorizationToken(localStorage.token);
-	const { username, email, profile_img } = jwtDecode(localStorage.token);
-	let user = {
-		email,
-		username, 
-		profile_img
-	}
-	store.dispatch(setCurrentUser(user));
+	store.dispatch(checkOnlineRequest()).then(res => {
+		console.log(res);
+		if(res.data.code === "0"){
+			setAuthorizationToken(localStorage.token);
+			const { username, email, profile_img } = jwtDecode(localStorage.token);
+			let user = {
+				email,
+				username, 
+				profile_img
+			}
+			store.dispatch(setCurrentUser(user));
+		} else {
+			setAuthorizationToken(null);
+			localStorage.removeItem('token');
+			let user = {}
+			store.dispatch(setCurrentUser(user));
+		}
+	});
 }
 
 ReactDOM.render(

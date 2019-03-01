@@ -11,6 +11,7 @@ class ArtsPage extends Component {
       myart: []
     }
   }
+  
   componentWillMount() {
     this.props.getArtLists()
     .then(res => {
@@ -27,7 +28,7 @@ class ArtsPage extends Component {
     .then(res => {
       if(res.data.code === "0") {
         const newArts = this.state.myart.filter(art => {
-          return art.image_id != id;
+          return art.image_id !== id;
         })
         this.setState({
           myart: newArts
@@ -45,7 +46,7 @@ class ArtsPage extends Component {
                     image_info = {art}
                     unlikeGeneratedArt = {this.unLikeHandler}
                   />
-        }
+        } 
       }
     );
     const portraitList = myart.map(art => {

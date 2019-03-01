@@ -11,14 +11,14 @@ def token_required(f):
 				token = request.headers['x-access-token']
 
 			if not token:
-				return {'message': 'Token is missing!'}, 401
+				return {"code":"40101", "message": "Token is missing!"}, 401
 
 			try:
 				data = jwt.decode(token, app.config['SECRET_KEY'])
 
 				current_user = UserModel.query.filter_by(public_id=data['public_id']).first()
 			except:
-				return {'message': 'Token is invalid'}, 401
+				return {"code":"40101", "message": "Token is invalid"}, 401
 
 			return f(current_user, *args, **kwargs)
 
