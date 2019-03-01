@@ -1,0 +1,44 @@
+.arts-container {
+  display: flex;
+}
+
+.art-card-container {
+  cursor: pointer;
+  height: 200px;
+  perspective: 600;
+  position: relative;
+  width: 200px;
+
+  img {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .art-card:hover {
+    transform: rotateY(180deg);
+  }
+  
+  .art-card {
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    width: 100%;
+  }
+  
+  .art-card .art-side {
+    backface-visibility: hidden;
+    border-radius: 6px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .art-card .art-back {
+    background: #eaeaed;
+    color: #0087cc;
+    line-height: 200px;
+    text-align: center;
+    transform: rotateY(180deg);
+  }
+}

@@ -1,0 +1,63 @@
+$primary-color: #F89726;
+$background-color: #272727;
+$font-color: rgb(253, 250, 250);
+
+a:hover {
+  color:$primary-color !important; 
+}
+
+.inner {
+  background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+  display: flex;
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 5;
+  .logo {
+    margin-right: 10px;
+    transition: margin .125s ease;
+  }
+  .navigation {
+    padding-top: 0.5rem;
+    display: block;
+    position: relative;
+    width:100%;
+    ul {
+      display: flex;
+      height: 37px;
+      align-items: center;
+      padding: 0 10px;
+      li {
+        padding-left: 1rem;
+      }
+    }
+  }
+  .profile {
+    margin-left: auto;
+    float: right;
+    align-items: center;
+    .auth {
+      display: flex;
+      align-items: center;
+      display: flex;
+      font-size: 18px;
+      font-weight: 300;
+      height: 44px;
+    }
+  }
+}
+
+.navbar-font {
+  font-size: 2em;
+  font-weight: 100;
+  color: $font-color;
+}
+.fl-left { float: left }
+
+.fl-right { float: right }
+
+.clearfix { clear: both }

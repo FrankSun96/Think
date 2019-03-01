@@ -1,0 +1,29 @@
+
+$primary-color: #F89726;
+$background-color: #272727;
+$border-color: #FFCC00;
+$font-color: rgb(253, 250, 250);
+
+/* User page */
+.page-section-user {
+  padding-top:6rem;
+}
+.page-section-user-background {
+  background: url(../../assets/images/user_page/background_user.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.user-content {
+  margin-top:2rem;
+}
+
+/*Side Bar*/
+.side-bar{
+  position: fixed;
+}
+
+/* Display Content */
+.display-content {
+    margin-left: 20%;
+}
+

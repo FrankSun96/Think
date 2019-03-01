@@ -1,0 +1,33 @@
+$primary-color: #F89726;
+$background-color: #272727;
+$border-color: #FFCC00;
+$font-color: rgb(253, 250, 250);
+
+/* Signup Page */
+.page-section-signup-background {
+  background: url(../../../assets/images/signup_page/background_signup.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.page-section-signup {
+  display: flex;
+  padding-top: 6rem;
+}
+  
+/* Signup form */
+.signup-form {
+  margin: auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  .signup-title {
+    margin: auto;
+    display: block;
+    font-size: 3rem;
+    font-weight: 100;
+  }
+  form {
+    padding-top: 3rem;
+    margin: auto;
+  }
+}

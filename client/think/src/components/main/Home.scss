@@ -1,0 +1,110 @@
+$background-color: #272727;
+$primary-color: #F89726;
+
+/* home page */
+body {
+  background-color: $background-color
+}
+
+.page-section-home-background {
+  background: url(../../assets/images/home_page/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-section {
+  height: 100vh;
+  background: $background-color;
+  color: white;
+}
+
+/* home page-1 */
+.page-section-home {
+  margin-top: 6rem;
+}
+
+.home-content {
+  display: flex;
+  margin-top:4rem;
+}
+
+.background-item {
+  margin: auto;
+  width: 95%;
+  img {
+    width: 100%;
+  }
+}
+.card{
+  background-color: rgba(0,0,0,.0);
+  margin-top: 2rem;
+  width:38rem;
+  height: 36.5rem;
+  pointer-events: none;
+  transform: translateZ(0);
+  margin-left: 50rem;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  position: absolute;
+  &:after{
+    content:" ";
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    border-radius: 50%;
+    left:0;
+    bottom:-50px;
+    box-shadow: 0 30px 20px rgba(0,0,0,.3);
+    
+  }
+  .card-content{
+    transform-style: preserve-3d;
+    .card-position {
+      position: absolute;
+      width: 100%;
+    }
+    .img {
+      transform: translateZ(150px);
+      margin-left: 4rem;
+      margin-top: 3rem;
+      width: 80%;
+    }
+    .img-content {
+      transform: translateZ(100px);
+    }
+    .img-shadow {
+      transform: translateZ(100px);
+      margin-left: -8rem;
+      margin-top:-5rem;
+      width: 150%;
+    }
+  }
+}
+.text {
+  transform: translateZ(150px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 18%;
+  text-align:center;
+  .text-content {
+    font-size: 7rem;
+    font-weight: 100;
+    .theme {
+      font-weight: 800;
+      color: $primary-color;
+    }
+  }
+}
+
+/* home page-2 */
+.page-section-generator-background {
+  background: url(../../assets/images/login_page/background_login.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-section-generator {
+  
+}
