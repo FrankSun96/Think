@@ -21,7 +21,7 @@ class ProfilePage extends Component {
 		return (
 			<div className="profile-section">
         <div className="profile-form"> 
-          <span class="profile-title">MY PROFILE</span>
+          <span className="profile-title">MY PROFILE</span>
           <ProfileForm 
             addFlashMessage = { addFlashMessage } 
             userUpdatenRequest = { userUpdatenRequest }

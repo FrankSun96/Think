@@ -20,6 +20,7 @@ class HomePage extends Component {
   }
 
   render() {
+    const maybe = <img className="card-position img-shadow" src={card_inner_shadow} alt=""></img>
     return (
       <div className="page" id="fullpage">
         <div className="page-section page-section-home-background" id="1" onMouseMove={ this.onMouseMove }>
@@ -31,7 +32,6 @@ class HomePage extends Component {
               <div className="card">
                 <div className="card-content">
                   <img className="card-position img-content" src={card_background} alt=""></img>
-                  <img className="card-position img-shadow" src={card_inner_shadow} alt=""></img>
                   <img className="card-position img" src={ai_painter} alt=""></img>
                 </div>
               </div>
