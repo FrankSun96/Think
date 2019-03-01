@@ -131,3 +131,9 @@ class UserUpdate(Resource):
                 )
 
         return {"code": "0", "message": "Update user successfully.", "token":  token.decode('UTF-8')}, 201
+
+class UserOnline(Resource):
+    decorators = [token_required]
+    
+    def get(self, current_user):
+        return {"code": "0", "message": "token is valid"}, 200

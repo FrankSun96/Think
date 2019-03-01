@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import LoginForm from './LoginForm'
-import { userLoginRequest, setCurrentUser} from '../../../actions/loginActions';
+import { userLoginRequest, setCurrentUser } from '../../../actions/loginActions';
 import { addFlashMessage } from '../../../actions/flashMessages';
 import login_paintings from '../../../assets/images/login_page/paintings.png';
 
@@ -27,7 +27,7 @@ class LoginPage extends Component {
                 <img src={ login_paintings } alt=""></img>
               </div>
               <div className="login-form">
-                <span class="login-title">LOGIN </span>
+                <span className="login-title">LOGIN </span>
                 <LoginForm 
                   addFlashMessage = { addFlashMessage } 
                   userLoginRequest = { userLoginRequest }

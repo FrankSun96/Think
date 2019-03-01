@@ -3,7 +3,7 @@ import validator from 'validator';
 import PropTypes from 'prop-types'
 import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
-import setAuthorizationToken from '../../../utils/setAuthorizationTokens'
+import { setAuthorizationToken } from '../../../utils/authorization'
 import jwtDecode from 'jwt-decode';
 
 class LoginForm extends Component {

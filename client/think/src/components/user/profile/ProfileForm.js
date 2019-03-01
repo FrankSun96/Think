@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import jwtDecode from 'jwt-decode';
-import setAuthorizationToken from '../../../utils/setAuthorizationTokens'
+import { setAuthorizationToken } from '../../../utils/authorization'
 
 class ProfileForm extends Component {
   constructor(props) {

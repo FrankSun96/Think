@@ -13,3 +13,10 @@ export const userLoginRequest = (userData) => {
     return axios.post("http://localhost:5000/api/user/login",userData)
   }
 };
+
+export const checkOnlineRequest = () => {
+  return dispatch => {
+    return axios.get("http://localhost:5000/api/user/online")
+  }
+};
+

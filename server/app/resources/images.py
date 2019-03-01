@@ -69,7 +69,6 @@ class ImagesDelete(Resource):
 			user_folder = os.path.join(root_folder,'static/assets/users/' + username + '/' + image_genre + '/' + image_url + '.jpg')
 			os.remove(user_folder)
 			image.delete_from_db()
-
 		return {"code": "0","message": "Delete image successfully"}, 200
 
 class ImageGenerator(Resource): 
