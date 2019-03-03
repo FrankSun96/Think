@@ -3,7 +3,6 @@ import './Home.scss';
 
 import background_item from '../../assets/images/home_page/background_item.png';
 import card_background from '../../assets/images/home_page/background.png';
-import card_inner_shadow from '../../assets/images/home_page/shadow.png';
 import ai_painter from '../../assets/images/home_page/ai_painter.jpg';
 
 import $ from 'jquery';
@@ -20,7 +19,6 @@ class HomePage extends Component {
   }
 
   render() {
-    const maybe = <img className="card-position img-shadow" src={card_inner_shadow} alt=""></img>
     return (
       <div className="page" id="fullpage">
         <div className="page-section page-section-home-background" id="1" onMouseMove={ this.onMouseMove }>
