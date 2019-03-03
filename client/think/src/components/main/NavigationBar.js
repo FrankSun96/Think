@@ -20,7 +20,7 @@ class NavigationBar extends Component {
           <div className="auth">
             <ul>
               <li>
-                <Link className="navbar-font" to="/user">{ user.username }</Link>
+                <Link className="navbar-font" to="/user/arts">{ user.username }</Link>
               </li>
             </ul>
           </div>

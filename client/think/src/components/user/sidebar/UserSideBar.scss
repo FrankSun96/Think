@@ -8,6 +8,67 @@ $font-color: rgb(253, 250, 250);
   margin-left: 1rem;
 }
 
+.side-bar-active {
+  margin-bottom: 3rem;
+  a {
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: 100;
+    color: #fff; 
+      
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background:$primary-color;
+      top: 50%;
+      left: -10px;
+      right: -10px;
+      height: 5px;
+      margin-top: -3px;
+      transform: scale(1);
+      transition: 0.3s ease-in-out all;
+      z-index: 10;
+    } 
+    > span {
+      clip-path: polygon(0 50%, 0 100%, 100% 100%, 100% 50%);
+      display: block;
+      transition: 0.3s ease-in-out all;
+      transform: translateX(3px) skewX(10deg);
+    }
+    
+    &:after {
+      content: attr(data-hover);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      transition: 0.3s ease-in-out all;
+      clip-path: polygon(0 0, 0 50%, 100% 50%, 100% 0);
+      transform: translateX(-5px) skewX(10deg);
+    }
+      
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #fff;
+        
+      &:before {
+        transform: scale(1);
+      }
+        
+      > span {
+        transform: translateX(3px) skewX(10deg);
+      }
+        
+      &:after {
+        transform: translateX(-5px) skewX(10deg);
+      }
+    }
+  }
+}
+
 .side-bar-item {
   margin-bottom: 3rem;
   a {
