@@ -11,9 +11,6 @@ class NotFound extends Component {
               <div className="not-found-title">
                 <span>Oops, the page does not exist!</span>
               </div>
-              <div>
-
-              </div>
             </div>
           </div>
         </div>
