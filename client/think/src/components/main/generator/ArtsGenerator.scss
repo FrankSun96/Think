@@ -96,6 +96,12 @@ $font-color: rgb(253, 250, 250);
   margin: 4rem auto;
 }
 
+.selector-list {
+  &:hover {
+    cursor:pointer
+  }
+}
+
 .selector-item {
   margin-bottom: 3rem;
   a {

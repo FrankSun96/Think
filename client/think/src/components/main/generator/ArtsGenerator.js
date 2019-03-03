@@ -78,21 +78,26 @@ class ArtsGenerator extends Component {
             <span className="text-title-selection">select one genre that you may want to generate</span>
             <div className="selector">
               <ul className="selector-list">
-                <li className="selector-item">
+                <li 
+                  className="selector-item"
+                  onClick = { this.onClick }
+                  data-value="abstract"
+                >
                   <a 
                     className="btn-split" 
                     data-hover="ABSTRACT"
-                    onClick = { this.onClick }
                     data-value="abstract"
                   >
                     <span>ABSTRACT</span>
                   </a>
                 </li>
-                <li className="side-bar-item">
+                <li 
+                  className="side-bar-item"
+                  data-value="portrait"
+                >
                   <a 
                     className="btn-split" 
                     data-hover="PORTRAIT"
-                    onClick = { this.onClick }
                     data-value="portrait"
                   >
                     <span>PORTRAIT</span>
