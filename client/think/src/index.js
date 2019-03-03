@@ -8,6 +8,7 @@ import LoginPage from './components/auth/login/LoginPage';
 import SignupPage from './components/auth/signup/SignupPage';
 import UserPage from './components/user/UserPage';
 import requireAuth from './utils/requireAuth';
+import NotFound from './components/main/NotFound';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -62,6 +63,7 @@ ReactDOM.render(
 				<Route path="/login" component={ LoginPage } />
 				<Route path="/signup" component={ SignupPage } />
 				<Route path="/user" component={ requireAuth(UserPage) }/>
+				<Route component={ NotFound}/>
       </div>
     </Router>
 	</Provider>,

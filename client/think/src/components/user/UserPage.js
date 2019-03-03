@@ -19,7 +19,7 @@ class UserPage extends Component {
                 </div>
                 <div className="display-content">
                   <Route exact path="/user" component={ ProfilePage } />
-                  <Route path="/user/arts" component={ ArtsPage } />
+                  <Route exact path="/user/arts" component={ ArtsPage } />
                 </div>
               </div>
             </div>
