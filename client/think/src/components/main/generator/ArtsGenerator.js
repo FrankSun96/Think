@@ -38,23 +38,27 @@ class ArtsGenerator extends Component {
   }
 
   onLike = e => {
-    const like = this.state.like;
-    let image_name = this.state.arts_info.art_url.split('/').pop().split('.')[0];
-    let image_genre = this.state.arts_info.genre;
-    let image = {
-      image_name,
-      image_genre
-    }
-    this.props.likeGeneratedArt(image)
-    .then(res => {
-      let success = res.data.code;
-      if(success === "0") {
-        console.log(res.data.message);
-        this.setState({
-          like: !like
-        })
+    const if_default = this.state.arts_info.art_url.includes('default');
+    const if_login = this.props.auth.isAuthenticated;
+    if(!if_default && if_login) {
+      const like = this.state.like;
+      let image_name = this.state.arts_info.art_url.split('/').pop().split('.')[0];
+      let image_genre = this.state.arts_info.genre;
+      let image = {
+        image_name,
+        image_genre
       }
-    })
+      this.props.likeGeneratedArt(image)
+      .then(res => {
+        let success = res.data.code;
+        if(success === "0") {
+          console.log(res.data.message);
+          this.setState({
+            like: !like
+          })
+        }
+      })
+    }
   }
 
   render() {
@@ -111,7 +115,12 @@ class ArtsGenerator extends Component {
     );
   }
 }
-
-export default connect(null, { getGeneratedArt, likeGeneratedArt })(ArtsGenerator);
-
-
+ArtsGenerator.propTypes = {
+  auth: PropTypes.object.isRequired
+}
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+export default connect(mapStateToProps, { getGeneratedArt, likeGeneratedArt })(ArtsGenerator);
