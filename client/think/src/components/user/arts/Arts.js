@@ -21,11 +21,9 @@ class Arts extends Component {
         <div className="art-card">
           <div className="art-side"><img src={`${address}${image_info.image_url}`} alt={image_info.image_id}></img>
           </div>
-          <div className="art-side art-back">
-            <button className="btn btn-warning btn-unlike" onClick={ this.onClick }>
-              Unlike
-            </button>
-          </div>
+        </div>
+        <div className="card-unlike">
+          <i className="fas fa-times" onClick={ this.onClick }></i>
         </div>
       </div>
     );
