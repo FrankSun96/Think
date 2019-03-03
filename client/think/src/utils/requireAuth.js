@@ -8,7 +8,7 @@ export default function(ComposedComponent) {
     componentWillMount() {
       if (!this.props.isAuthenticated) {
         this.props.addFlashMessage({
-          type: 'danger',
+          type: 'error',
           text: 'You need to login to access this page'
         });
         this.context.router.history.push('/');

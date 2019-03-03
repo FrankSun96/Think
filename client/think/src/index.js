@@ -9,14 +9,15 @@ import SignupPage from './components/auth/signup/SignupPage';
 import UserPage from './components/user/UserPage';
 import requireAuth from './utils/requireAuth';
 import NotFound from './components/main/NotFound';
+import FlashMessagesList from './components/flash/FlashMessagesList';
 
 import * as serviceWorker from './serviceWorker';
 
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { createStore, applyMiddleware } from 'redux';
 
@@ -59,11 +60,14 @@ ReactDOM.render(
 		<Router>
       <div className="app">
         <NavigationBar />
-				<Route exact path="/" component={ HomePage} />
-				<Route path="/login" component={ LoginPage } />
-				<Route path="/signup" component={ SignupPage } />
-				<Route path="/user" component={ requireAuth(UserPage) }/>
-				<Route component={ NotFound}/>
+				<FlashMessagesList />
+				<Switch>
+					<Route exact path="/" component={ HomePage} />
+					<Route path="/login" component={ LoginPage } />
+					<Route path="/signup" component={ SignupPage } />
+					<Route path="/user" component={ requireAuth(UserPage) }/>
+					<Route path="*" component={ NotFound}/>
+				</Switch>
       </div>
     </Router>
 	</Provider>,

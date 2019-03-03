@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getGeneratedArt, likeGeneratedArt } from '../../../actions/artsActions';
+import { addFlashMessage } from '../../../actions/flashMessages';
 import './ArtsGenerator.scss';
 import Arts from './Arts'
 import PropTypes from 'prop-types';
@@ -20,7 +21,8 @@ class ArtsGenerator extends Component {
 
   static propTypes = {
     getGeneratedArt: PropTypes.func.isRequired,
-    likeGeneratedArt: PropTypes.func.isRequired
+    likeGeneratedArt: PropTypes.func.isRequired,
+    addFlashMessage: PropTypes.func.isRequired
   }
 
   onClick = e => {
@@ -40,8 +42,8 @@ class ArtsGenerator extends Component {
   onLike = e => {
     const if_default = this.state.arts_info.art_url.includes('default');
     const if_login = this.props.auth.isAuthenticated;
-    if(!if_default && if_login) {
-      const like = this.state.like;
+    const like = this.state.like;
+    if(!if_default && if_login && !like) {
       let image_name = this.state.arts_info.art_url.split('/').pop().split('.')[0];
       let image_genre = this.state.arts_info.genre;
       let image = {
@@ -52,12 +54,22 @@ class ArtsGenerator extends Component {
       .then(res => {
         let success = res.data.code;
         if(success === "0") {
-          console.log(res.data.message);
           this.setState({
-            like: !like
+            like: true
           })
+          this.props.addFlashMessage({
+            type: 'success',
+            text: 'Save art successfully.'
+          });
         }
       })
+    } else {
+      if(!if_login) {
+        this.props.addFlashMessage({
+          type: 'info',
+          text: 'If you want to save this art, please login first.'
+        });
+      }
     }
   }
 
@@ -123,4 +135,4 @@ const mapStateToProps = (state) => {
     auth: state.auth
   }
 }
-export default connect(mapStateToProps, { getGeneratedArt, likeGeneratedArt })(ArtsGenerator);
+export default connect(mapStateToProps, { getGeneratedArt, likeGeneratedArt, addFlashMessage})(ArtsGenerator);

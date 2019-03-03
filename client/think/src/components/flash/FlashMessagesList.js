@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import FlashMessage from './FlashMessage';
 import { deleteFlashMessage } from '../../actions/flashMessages'
 
+import './FlashMessage.scss';
+
+
 class FlashMessagesList extends Component {
   static propTypes = {
     messages: PropTypes.array.isRequired,
@@ -17,7 +20,9 @@ class FlashMessagesList extends Component {
     )
     return (
       <div className="container">
-        { messages }
+        <ul className="alerts">
+          { messages }
+        </ul>
       </div>
     );
   }

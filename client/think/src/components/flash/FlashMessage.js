@@ -13,15 +13,33 @@ class FlashMessage extends Component {
   }
 
   render() {
-    const { type, text } = this.props.message;
+    const { type, text, id } = this.props.message;
     return (
-      <div className={ classnames('alert fade show', {
-        'alert-success': type === 'success',
-        'alert-danger': type === 'danger'
-      })}>
-        <button onClick={ this.onClick } className="close"><span>&times;</span></button>
-        { text }
-      </div>
+      <li className={ classnames('flash-alert alert open animated fadeInRight faster', {
+            'alert-success': type === 'success',
+            'alert-warning': type === 'warning',
+            'alert-error': type === 'error',
+            'alert-info': type === 'info'
+          })} 
+          data-value = { id }
+          onClick = { this.onClick }
+      >
+        <i  className={ classnames({
+              'fas fa-exclamation-circle': type === 'warning',
+              'fas fa-check-circle': type === 'success',
+              'fas fa-times': type === 'error',
+              'fas fa-info': type === 'info'
+            })}>
+        </i>
+        <div className="alert-block">
+          <div className="alert-title">
+            { type.toUpperCase() }
+          </div>
+          <div className="alert-message">
+            { text }
+          </div>
+        </div>
+      </li>
     );
   }
 }

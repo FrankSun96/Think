@@ -19,7 +19,6 @@ class LoginForm extends Component {
 
 	static propTypes = {
     userLoginRequest: PropTypes.func.isRequired,
-		addFlashMessage: PropTypes.func.isRequired,
 		setCurrentUser: PropTypes.func.isRequired
 	}
 	
@@ -62,7 +61,7 @@ class LoginForm extends Component {
 					this.props.history.push('/');
 				} else {
 					this.props.addFlashMessage({
-            type: 'danger',
+            type: 'error',
             text: res.data.message
           });
 				}
