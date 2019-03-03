@@ -88,7 +88,7 @@ class ArtsGenerator extends Component {
                     data-hover="ABSTRACT"
                     data-value="abstract"
                   >
-                    <span>ABSTRACT</span>
+                    <span data-value="abstract">ABSTRACT</span>
                   </a>
                 </li>
                 <li 
@@ -100,7 +100,7 @@ class ArtsGenerator extends Component {
                     data-hover="PORTRAIT"
                     data-value="portrait"
                   >
-                    <span>PORTRAIT</span>
+                    <span data-value="portrait">PORTRAIT</span>
                   </a>
                 </li>
               </ul>
