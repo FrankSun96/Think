@@ -3,14 +3,22 @@
   flex-direction: column;
 }
 
+.profile-section {
+  margin: auto;
+}
+
 .profile-label {
   font-size: 1.5rem;
   font-weight: 100;
   margin-bottom: 0.5rem;
 }
 
-.profile-btn {
+.profile-btns {
+  display: flex;
   margin-top: 1.5rem;
+  height: calc(3.25rem + 2px);
+  width: 28rem;
+  justify-content: space-between;
 }
 
 .profile-title {
@@ -19,4 +27,8 @@
   font-size: 3rem;
   font-weight: 100;
   margin-bottom:2rem;
+}
+
+.profile-btn {
+  width: 13.5rem;
 }

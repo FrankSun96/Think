@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import validator from 'validator';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -38,6 +40,15 @@ class ProfileForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  onLogout = (e) => {
+    e.preventDefault();
+    setAuthorizationToken(null);
+		localStorage.removeItem("token");
+		let user = {}
+    this.props.setCurrentUser(user);
+    this.props.history.push('/');
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     const { password_error, username_error, confirm_password_error, password, username, confirm_password } = this.state;
@@ -61,7 +72,6 @@ class ProfileForm extends Component {
         }
         this.props.userUpdatenRequest(user)
         .then((res) => {
-          console.log(res);
           const token = res.data.token;
 					localStorage.setItem('token', token);
 					const { email, profile_img, username } = jwtDecode(token);
@@ -116,7 +126,7 @@ class ProfileForm extends Component {
   render() {
     const { password_error, username_error, confirm_password_error } = this.state;
     return (
-      <form onSubmit={ this.onSubmit } className="profile">
+      <form className="profile">
         <div className="form-group">
           <label className="profile-label">Email</label>
           <input
@@ -161,9 +171,17 @@ class ProfileForm extends Component {
           />
           { confirm_password_error && <span className='form-text text-muted'>{ confirm_password_error }</span> }
         </div>
-        <div className="form-group">
-            <button className="btn btn-warning btn-lg profile-btn">
+        <div className="form-group profile-btns">
+            <button 
+              className="btn btn-warning btn-lg profile-btn"
+              onClick = {this.onSubmit}
+            >
               Update
+            </button>
+            <button 
+              onClick = {this.onLogout}
+              className="btn btn-danger btn-lg profile-btn">
+              Logout
             </button>
         </div>
       </form>
@@ -181,4 +199,4 @@ const mapStateToProps = (state) => {
     auth: state.auth
   }
 }
-export default connect(mapStateToProps)(ProfileForm);
+export default withRouter(connect(mapStateToProps)(ProfileForm));
