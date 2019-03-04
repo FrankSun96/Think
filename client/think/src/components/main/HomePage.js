@@ -44,12 +44,6 @@ class HomePage extends Component {
             <ArtsGenerator></ArtsGenerator>
           </div>
         </div>
-        <div className="page-section section" id="3">
-              <h1>Section Three</h1>
-        </div>
-        <div className="page-section section" id="4">
-              <h1>Section Four</h1>
-        </div>
       </div>
     );
   }
