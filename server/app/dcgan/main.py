@@ -8,7 +8,7 @@ from app.dcgan.utils import pp, visualize, to_json, show_all_variables
 import tensorflow as tf
 
 class Arts:
-  def __init__(self):
+  def __init__(self, ):
     root_folder = os.getcwd()
     data_dir = os.path.join(root_folder,'app/dcgan/data')
     checkpoint_dir = os.path.join(root_folder,'app/dcgan/checkpoint')
@@ -35,13 +35,12 @@ class Arts:
     flags.DEFINE_integer("generate_test_images", 100, "Number of images to generate during test. [100]")
     self.FLAGS = flags.FLAGS
 
-  def generate(self, genre):
+  def generate(self, genre, input_size, output_size):
     self.FLAGS.dataset = genre
-
-    if self.FLAGS.input_width is None:
-      self.FLAGS.input_width = self.FLAGS.input_height
-    if self.FLAGS.output_width is None:
-      self.FLAGS.output_width = self.FLAGS.output_height
+    self.FLAGS.input_width = input_size
+    self.FLAGS.input_height = input_size
+    self.FLAGS.output_height = output_size
+    self.FLAGS.output_width = output_size
 
     if not os.path.exists(self.FLAGS.checkpoint_dir):
       os.makedirs(self.FLAGS.checkpoint_dir)

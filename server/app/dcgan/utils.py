@@ -9,6 +9,7 @@ import pprint
 import scipy.misc
 import numpy as np
 from time import gmtime, strftime
+from PIL import Image
 from six.moves import xrange
 
 import tensorflow as tf
@@ -199,6 +200,9 @@ def visualize(sess, dcgan, config, option):
       
       filename = ''.join(random.sample(string.ascii_letters + string.digits, 8))
       save_images(samples, [image_frame_dim, image_frame_dim], dcgan.sample_dir + '/%s.jpg'%(filename))
+      file_path = dcgan.sample_dir + '/%s.jpg'%(filename)
+      cut_picture(file_path, config.output_width)
+
 
   return filename
 
@@ -207,3 +211,9 @@ def image_manifold_size(num_images):
   manifold_w = int(np.ceil(np.sqrt(num_images)))
   assert manifold_h * manifold_w == num_images
   return manifold_h, manifold_w
+
+def cut_picture(file_path, size):
+  img = Image.open(file_path)
+  img2 = img.crop((0, 0, size, size))
+  img2 = img2.resize((200, 200),Image.ANTIALIAS)
+  img2.save(file_path)

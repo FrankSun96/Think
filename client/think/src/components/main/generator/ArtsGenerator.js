@@ -27,6 +27,7 @@ class ArtsGenerator extends Component {
 
   onClick = e => {
     const genre = e.target.dataset.value;
+    console.log(genre)
     this.props.getGeneratedArt(genre)
     .then(res => {
       const arts_url = res.data.image_file;
@@ -109,6 +110,7 @@ class ArtsGenerator extends Component {
                 </li>
                 <li 
                   className="side-bar-item"
+                  onClick = { this.onClick }
                   data-value="portrait"
                 >
                   <a 

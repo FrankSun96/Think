@@ -81,7 +81,15 @@ class ImageGenerator(Resource):
 
 	def get(self):
 		data = ImageGenerator.parser.parse_args()
-		output_filename = ImageGenerator.art.generate(data['genre'])
+		if(data['genre'] == "abstract"):
+			input_size = 64
+			output_size = 64
+		else :
+			input_size = 108
+			output_size = 200
+
+		output_filename = ImageGenerator.art.generate(data['genre'], input_size, output_size)
+
 		if output_filename is not None:
 			file_name =	url_for('static', filename='assets/generated/' + output_filename + '.jpg')
 			return {"code": "0", "message": "Arts generate successfully.", "image_file": file_name, "genre": data['genre']}, 200
