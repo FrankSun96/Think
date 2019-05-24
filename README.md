@@ -3,7 +3,7 @@
 ## Technology Stack 
 * Front-end: React Redux
 * Back-end: Flask
-* Neural Network: Deep Convolution Generative Adversarial Networks
+* Neural Network: Deep Convolution Generative Adversarial Networks, Tensorflow
 
 ## Functionality
 * Generate pictures with genre of Abstract and Portrait
