@@ -82,7 +82,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "redux-devtools-extension": "^2.13.7",
     "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0"
