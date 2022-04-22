@@ -4128,10 +4128,10 @@ fstream@^1.0.0, fstream@^1.0.2:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-fullpage.js@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.0.4.tgz#bb3eb1af7ecb5706866abf64ffc7b2535cec39b7"
-  integrity sha512-GWpud0Gvr8i4k3QySoajFevO18UBKMJ9znU3o4uaXZkKYqLtS8d1BSQoAARmYwYgBLOw3YrKAG+4LoaIokO1UA==
+fullpage.js@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-4.0.5.tgz#033880e792610a28fe4f7c9ee49eff33a7b38e14"
+  integrity sha512-4OWRP08ogL35LwnNyDa8LNqRD0003HdolcVflfUyhMwAHVrpBNY9u1WYdAfnFEX7bd4vsermL7z22nmNqPWZvw==
 
 function-bind@^1.1.1:
   version "1.1.1"
